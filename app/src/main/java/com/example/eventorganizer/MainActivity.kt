@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
             .baseUrl("http://eventapi.dx.am")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-
+        //api
         var eventAPI = retrofit.create(EventAPI::class.java)
 
         val call = eventAPI.login("root", "root1")
