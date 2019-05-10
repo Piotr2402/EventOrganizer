@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:background="@xml/gradient"
+                                             tools:context=".RegistrationActivity">
+
+    <TextView
+            android:text="Rejestracja"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title" android:textSize="40sp"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView" android:gravity="center"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/registerButton">
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                tools:layout_editor_absoluteY="114dp" tools:layout_editor_absoluteX="65dp" android:id="@+id/firstName"
+                android:hint="Imię" android:gravity="center" android:padding="20dp" android:textSize="24sp"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                tools:layout_editor_absoluteY="198dp" tools:layout_editor_absoluteX="65dp" android:id="@+id/lastName"
+                android:hint="Nazwisko" android:gravity="center" android:padding="20dp" android:textSize="24sp"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                tools:layout_editor_absoluteY="281dp" tools:layout_editor_absoluteX="56dp" android:id="@+id/nick"
+                android:hint="Nazwa użytkownika" android:gravity="center" android:padding="20dp"
+                android:textSize="24sp"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                tools:layout_editor_absoluteY="367dp" tools:layout_editor_absoluteX="55dp" android:id="@+id/password"
+                android:hint="Hasło" android:gravity="center" android:padding="20dp" android:textSize="24sp"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                tools:layout_editor_absoluteY="460dp" tools:layout_editor_absoluteX="64dp"
+                android:id="@+id/repeatedPassword"
+                android:hint="Powtórz hasło" android:gravity="center" android:padding="20dp" android:textSize="24sp"/>
+    </LinearLayout>
+    <Button
+            android:text="Zarajestruj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerButton" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.9" android:textSize="24sp" android:onClick="register"
+            style="@style/Widget.AppCompat.Button.Colored"/>
+</android.support.constraint.ConstraintLayout>
