@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.content.DialogInterface
 import android.content.Intent
 import android.support.v7.app.AlertDialog
+import android.view.View
 
 
 class MenuActivity : AppCompatActivity() {
@@ -34,4 +35,11 @@ class MenuActivity : AppCompatActivity() {
         builder.setMessage("Chcesz się wylogować?").setPositiveButton("Tak", dialogClickListener)
             .setNegativeButton("Nie", dialogClickListener).show()
     }
+
+    fun onAllEventsButtonClicked(view : View)
+    {
+        val intent = Intent(this, AllEventsActivity::class.java)
+        startActivity(intent)
+    }
+
 }

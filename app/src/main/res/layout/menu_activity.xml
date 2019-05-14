@@ -37,7 +37,7 @@
             app:layout_constraintTop_toBottomOf="@+id/button" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/button3" android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="24dp"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" android:onClick="onAllEventsButtonClicked"/>
     <Button
             android:text="Dodaj wydarzenie"
             android:layout_width="0dp"
