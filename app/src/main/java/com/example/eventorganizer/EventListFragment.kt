@@ -20,7 +20,7 @@ import com.example.eventorganizer.EventContent.EventItem
 class EventListFragment : Fragment() {
 
     // TODO: Customize parameters
-    private var columnCount = 1
+    private var columnCount = 2
 
     private var listener: OnListFragmentInteractionListener? = null
 
