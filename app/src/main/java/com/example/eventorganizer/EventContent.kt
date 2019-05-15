@@ -13,7 +13,7 @@ object EventContent{
     /**
      * A map of sample (Event) items, by ID.
      */
-    val ITEM_MAP: MutableMap<String, EventItem> = HashMap()
+    val ITEM_MAP: MutableMap<String, EventItem> = HashMap<String, EventItem>()
 
     private val COUNT = 3
 

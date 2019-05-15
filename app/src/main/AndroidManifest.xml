@@ -3,6 +3,8 @@
           package="com.example.eventorganizer">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-feature android:name="android.hardware.camera"
+                  android:required="true" />
 
     <application
             android:allowBackup="true"
@@ -15,6 +17,8 @@
         <activity android:name=".EventDetailsActivity">
         </activity>
         <activity android:name=".AllEventsActivity">
+        </activity>
+        <activity android:name=".AddEventActivity">
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>

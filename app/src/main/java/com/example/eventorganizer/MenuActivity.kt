@@ -36,9 +36,13 @@ class MenuActivity : AppCompatActivity() {
             .setNegativeButton("Nie", dialogClickListener).show()
     }
 
-    fun onAllEventsButtonClicked(view : View)
-    {
+    fun onAllEventsButtonClicked(view : View) {
         val intent = Intent(this, AllEventsActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun addEvent(view : View) {
+        val intent = Intent(this, AddEventActivity::class.java)
         startActivity(intent)
     }
 

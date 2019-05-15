@@ -64,8 +64,12 @@ class MainActivity : AppCompatActivity() {
     private fun loginDataAccepted() {
         val intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
+
         val sharedPref = getSharedPreferences("logout", MODE_PRIVATE)
         val editor = sharedPref.edit()
+        editor.putString("login",login.text.toString())
+        editor.putString("password",password1.text.toString())
+
         if(logout.isChecked) {
             editor.putBoolean("logout", false)
         } else {
