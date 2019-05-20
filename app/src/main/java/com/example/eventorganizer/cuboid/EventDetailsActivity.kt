@@ -1,7 +1,8 @@
-package com.example.eventorganizer
+package com.example.eventorganizer.cuboid
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.eventorganizer.R
 
 class EventDetailsActivity : AppCompatActivity() {
 

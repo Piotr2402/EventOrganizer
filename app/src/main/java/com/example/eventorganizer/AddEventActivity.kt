@@ -1,8 +1,11 @@
 package com.example.eventorganizer
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.icu.util.Calendar
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v7.app.AlertDialog
@@ -29,7 +32,8 @@ class AddEventActivity : AppCompatActivity() {
     val REQUEST_IMAGE_CAPTURE = 1
 
     val nameDefault = "Moje wydarzenie"
-    val dateDefault = "22-01-2022"
+    val dateDefault = "2022-01-23"
+    val timeDefault = "12:55"
     val placeDefault = "Wroclaw"
     val limitDefault = 4
 
@@ -81,6 +85,34 @@ class AddEventActivity : AppCompatActivity() {
         })
     }
 
+    fun timeButtonClick(view: View) {
+        val c = Calendar.getInstance()
+        val hour = c.get(Calendar.HOUR_OF_DAY)
+        val minute = c.get(Calendar.MINUTE)
+
+        val tpd = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener(function = { view, h, m ->
+            val tex = (if (h < 10) "0" else "") + "$h:" +
+                    (if (m < 10) "0" else "") + "$m"
+            timeButton.text = tex
+        }), hour, minute, true)
+
+        tpd.show()
+    }
+
+    fun dateButtonClick(view: View) {
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+        val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, yearr, monthOfYear, dayOfMonth ->
+            val tex = yearr.toString() + "-" + (if (monthOfYear + 1 < 10) "0" else "") + "${monthOfYear + 1}-" +
+                    (if (dayOfMonth < 10) "0" else "") + "$dayOfMonth"
+            dateButton.text = tex
+        }, year, month, day)
+
+        dpd.show()
+    }
+
     fun addEvent(abc: String) {
         val sharedPref = getSharedPreferences("logout", MODE_PRIVATE)
         val login: String = sharedPref.getString("login", "defaultLog")
@@ -90,9 +122,13 @@ class AddEventActivity : AppCompatActivity() {
         if (nameValue == "")
             nameValue = nameDefault
 
-        var dateValue = date.text.toString()
+        var dateValue = dateButton.text.toString()
         if (dateValue == "")
             dateValue = dateDefault
+
+        var timeValue = timeButton.text.toString()
+        if (timeValue == "")
+            timeValue = timeDefault
 
         var placeValue = place.text.toString()
         if (placeValue == "")
@@ -102,8 +138,16 @@ class AddEventActivity : AppCompatActivity() {
         if (limit.text.toString() != "")
             limitValue = limit.text.toString().toInt()
 
-        val call2 =
-            eventAPI.addEvent(nameValue, dateValue, placeValue, limitValue, login, pass, abc)
+        val call2 = eventAPI.addEvent(
+            login, pass,
+            nameValue,
+            dateValue,
+            timeValue,
+            placeValue,
+            description.text.toString(),
+            limitValue,
+            abc
+        )
         call2.enqueue(object : Callback<LoginResult> {
             override fun onFailure(call: Call<LoginResult>, t: Throwable) {
                 displayAlertDialog("Błąd podczasz tworzenia", false)

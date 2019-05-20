@@ -1,5 +1,6 @@
-package com.example.eventorganizer
+package com.example.eventorganizer.cuboid
 
+import com.example.eventorganizer.R
 import java.io.Serializable
 import java.util.ArrayList
 import java.util.HashMap
@@ -24,9 +25,30 @@ object EventContent{
             addItem(createEventItem(i,R.drawable.abc))
         }
         */
-        addItem(createEventItem(1,R.drawable.trueasf,title="Adam zrób projekt",place="PWR"))
-        addItem(createEventItem(3,R.drawable.abc,title = "Piwko",place="Warka"))
-        addItem(createEventItem(2,R.drawable.mo,title = "Meczyk",place="Orlik spółdzielcza"))
+        addItem(
+            createEventItem(
+                1,
+                R.drawable.trueasf,
+                title = "Adam zrób projekt",
+                place = "PWR"
+            )
+        )
+        addItem(
+            createEventItem(
+                3,
+                R.drawable.abc,
+                title = "Piwko",
+                place = "Warka"
+            )
+        )
+        addItem(
+            createEventItem(
+                2,
+                R.drawable.mo,
+                title = "Meczyk",
+                place = "Orlik spółdzielcza"
+            )
+        )
 
 
     }
@@ -37,7 +59,13 @@ object EventContent{
     }
 
     private fun createEventItem(position: Int,imageID: Int,title: String = "title",place: String="place"): EventItem {
-        return EventItem(position.toString(), "Item " + position,imageID = imageID,title = title,place = place)
+        return EventItem(
+            position.toString(),
+            "Item " + position,
+            imageID = imageID,
+            title = title,
+            place = place
+        )
     }
 
     /*

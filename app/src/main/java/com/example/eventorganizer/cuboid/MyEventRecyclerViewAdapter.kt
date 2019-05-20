@@ -1,4 +1,4 @@
-package com.example.eventorganizer
+package com.example.eventorganizer.cuboid
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -8,8 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 
 
-import com.example.eventorganizer.EventListFragment.OnListFragmentInteractionListener
-import com.example.eventorganizer.EventContent.EventItem
+import com.example.eventorganizer.cuboid.EventListFragment.OnListFragmentInteractionListener
+import com.example.eventorganizer.cuboid.EventContent.EventItem
+import com.example.eventorganizer.R
 
 import kotlinx.android.synthetic.main.fragment_event.view.*
 

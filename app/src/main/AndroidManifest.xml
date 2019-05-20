@@ -3,8 +3,10 @@
           package="com.example.eventorganizer">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
 
+    <uses-feature
+            android:name="android.hardware.camera"
+            android:required="true"/>
 
     <application
             android:allowBackup="true"
@@ -16,10 +18,11 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-
-        <activity android:name=".EventDetailsActivity">
+        <activity android:name=".cycles.MyAllEventsActivity">
         </activity>
-        <activity android:name=".AllEventsActivity">
+        <activity android:name=".cuboid.EventDetailsActivity">
+        </activity>
+        <activity android:name=".cuboid.AllEventsActivity">
         </activity>
         <activity android:name=".AddEventActivity">
         </activity>

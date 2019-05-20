@@ -1,4 +1,4 @@
-package com.example.eventorganizer
+package com.example.eventorganizer.cuboid
 
 import android.content.Context
 import android.os.Bundle
@@ -9,8 +9,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.eventorganizer.R
 
-import com.example.eventorganizer.EventContent.EventItem
+import com.example.eventorganizer.cuboid.EventContent.EventItem
 
 /**
  * A fragment representing a list of Items.

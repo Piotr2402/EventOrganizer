@@ -26,11 +26,37 @@ interface EventAPI {
     @POST("/events/add/")
     @FormUrlEncoded
     fun addEvent(
-        @Field("title") title: String, @Field("date") date: String,
-        @Field("place") place: String, @Field("limit") limit: Int,
-        @Field("login") login: String, @Field("password") password: String,
+        @Field("login") login: String,
+        @Field("password") password: String,
+        @Field("title") title: String,
+        @Field("date") date: String,
+        @Field("time") time: String,
+        @Field("place") place: String,
+        @Field("description") description: String,
+        @Field("limit") limit: Int,
         @Field("picture") picture: String
     ): Call<LoginResult>
 
+    @POST("/events/show/")
+    @FormUrlEncoded
+    fun getEvents(
+        @Field("login") login: String,
+        @Field("password") password: String
+    ): Call<EventsResult>
 
+    @POST("/users/getInterested/")
+    @FormUrlEncoded
+    fun getInterested(
+        @Field("login") login: String,
+        @Field("password") password: String,
+        @Field("eventId") eventId: Int
+    ): Call<LoginResult>
+
+    @POST("/users/takePart/")
+    @FormUrlEncoded
+    fun takePart(
+        @Field("login") login: String,
+        @Field("password") password: String,
+        @Field("eventId") eventId: Int
+    ): Call<LoginResult>
 }

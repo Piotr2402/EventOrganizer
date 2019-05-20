@@ -6,6 +6,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.support.v7.app.AlertDialog
 import android.view.View
+import com.example.eventorganizer.cycles.MyAllEventsActivity
 
 
 class MenuActivity : AppCompatActivity() {
@@ -37,7 +38,7 @@ class MenuActivity : AppCompatActivity() {
     }
 
     fun onAllEventsButtonClicked(view : View) {
-        val intent = Intent(this, AllEventsActivity::class.java)
+        val intent = Intent(this, MyAllEventsActivity::class.java)
         startActivity(intent)
     }
 
