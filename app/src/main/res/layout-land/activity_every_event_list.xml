@@ -13,5 +13,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:listitem="@layout/layout_item"/>
+            tools:listitem="@layout/layout_item" android:id="@+id/recyclerView"/>
 </android.support.constraint.ConstraintLayout>
