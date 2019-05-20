@@ -18,36 +18,62 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Title" android:textSize="24sp"/>
     <LinearLayout
             android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/textViewEvent"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintTop_toBottomOf="@+id/textViewEvent" android:gravity="center"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/registerButton"
-            android:id="@+id/linearLayout">
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/addButton"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toEndOf="@+id/imageView" android:gravity="center">
         <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                tools:layout_editor_absoluteY="114dp" tools:layout_editor_absoluteX="65dp" android:id="@+id/name"
-                android:hint="Nazwa" android:gravity="center" android:padding="20dp" android:textSize="18sp"/>
-        <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="date"
-                android:ems="10"
-                tools:layout_editor_absoluteY="198dp" tools:layout_editor_absoluteX="65dp" android:id="@+id/date"
-                android:hint="Data" android:gravity="center" android:padding="20dp" android:textSize="18sp"/>
-        <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
                 tools:layout_editor_absoluteY="281dp" tools:layout_editor_absoluteX="56dp" android:id="@+id/place"
                 android:hint="Miejsce" android:gravity="center" android:padding="20dp"
                 android:textSize="18sp"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                tools:layout_editor_absoluteY="367dp" tools:layout_editor_absoluteX="55dp" android:id="@+id/description"
+                android:hint="Opis" android:gravity="center" android:padding="20dp" android:textSize="18sp"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                tools:layout_editor_absoluteY="460dp" tools:layout_editor_absoluteX="64dp"
+                android:id="@+id/limit"
+                android:hint="Limit osób" android:gravity="center" android:padding="20dp" android:textSize="18sp"
+                android:inputType="number"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textViewEvent" android:gravity="center"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/photoButton"
+            android:id="@+id/linearLayout" app:layout_constraintEnd_toStartOf="@+id/imageView">
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                tools:layout_editor_absoluteY="114dp" tools:layout_editor_absoluteX="65dp" android:id="@+id/name"
+                android:hint="Nazwa" android:gravity="center" android:padding="20dp" android:textSize="18sp"/>
+        <Button
+                android:text="2019-05-20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/dateButton" android:onClick="dateButtonClick"/>
+        <Button
+                android:text="13:66"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/timeButton" android:onClick="timeButtonClick"/>
     </LinearLayout>
     <Button
             android:text="Utwórz"
@@ -70,34 +96,12 @@
             android:layout_marginStart="8dp"/>
     <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:srcCompat="@tools:sample/avatars"
-            android:id="@+id/imageView" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textViewEvent" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/photoButton"/>
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_height="0dp" tools:srcCompat="@tools:sample/avatars"
+            android:id="@+id/imageView"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textViewEvent">
-        <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                tools:layout_editor_absoluteY="367dp" tools:layout_editor_absoluteX="55dp" android:id="@+id/description"
-                android:hint="Opis" android:gravity="center" android:padding="20dp" android:textSize="18sp"/>
-        <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                tools:layout_editor_absoluteY="460dp" tools:layout_editor_absoluteX="64dp"
-                android:id="@+id/limit"
-                android:hint="Limit osób" android:gravity="center" android:padding="20dp" android:textSize="18sp"
-                android:inputType="number"/>
-    </LinearLayout>
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
 
 </android.support.constraint.ConstraintLayout>

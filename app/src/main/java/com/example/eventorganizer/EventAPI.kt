@@ -41,7 +41,8 @@ interface EventAPI {
     @FormUrlEncoded
     fun getEvents(
         @Field("login") login: String,
-        @Field("password") password: String
+        @Field("password") password: String,
+        @Field("mode") mode: String
     ): Call<EventsResult>
 
     @POST("/users/getInterested/")

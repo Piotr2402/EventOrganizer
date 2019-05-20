@@ -39,6 +39,19 @@ class MenuActivity : AppCompatActivity() {
 
     fun onAllEventsButtonClicked(view : View) {
         val intent = Intent(this, MyAllEventsActivity::class.java)
+        intent.putExtra("mode", "all")
+        startActivity(intent)
+    }
+
+    fun onOrganisedEventsButtonClicked(view : View) {
+        val intent = Intent(this, MyAllEventsActivity::class.java)
+        intent.putExtra("mode", "organised")
+        startActivity(intent)
+    }
+
+    fun onPartEventsButtonClicked(view : View) {
+        val intent = Intent(this, MyAllEventsActivity::class.java)
+        intent.putExtra("mode", "takingPart")
         startActivity(intent)
     }
 

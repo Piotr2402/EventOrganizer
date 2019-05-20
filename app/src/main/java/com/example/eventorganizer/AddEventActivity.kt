@@ -53,6 +53,19 @@ class AddEventActivity : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         eventAPI = retrofit.create(EventAPI::class.java)
+
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+        var tex = year.toString() + "-" + (if (month + 1 < 10) "0" else "") + "${month + 1}-" +
+                (if (day < 10) "0" else "") + "$day"
+        dateButton.text = tex
+        val h = c.get(Calendar.HOUR_OF_DAY)
+        val m = c.get(Calendar.MINUTE)
+        tex = (if (h < 10) "0" else "") + "$h:" +
+                (if (m < 10) "0" else "") + "$m"
+        timeButton.text = tex
     }
 
     fun add(view: View) {

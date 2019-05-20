@@ -42,7 +42,7 @@ class MyAllEventsActivity : AppCompatActivity() {
         recycler.setHasFixedSize(true)
         val siema = this
         myAdapter = MyAdapter(myElements, {
-            val call2 = eventAPI.getInterested(login, pass, it)
+            val call2 = eventAPI.getInterested(login, pass, myElements[it].eventId)
             call2.enqueue(object : Callback<LoginResult> {
                 override fun onFailure(call: Call<LoginResult>, t: Throwable) {
                     Toast.makeText(siema, "${t.message}", Toast.LENGTH_LONG).show()
@@ -59,7 +59,7 @@ class MyAllEventsActivity : AppCompatActivity() {
             })
         }, {
             if (myElements[it].goingUserCount < myElements[it].limit) {
-                val call2 = eventAPI.takePart(login, pass, it)
+                val call2 = eventAPI.takePart(login, pass, myElements[it].eventId)
                 call2.enqueue(object : Callback<LoginResult> {
                     override fun onFailure(call: Call<LoginResult>, t: Throwable) {
                         Toast.makeText(siema, "${t.message}", Toast.LENGTH_LONG).show()
@@ -78,9 +78,11 @@ class MyAllEventsActivity : AppCompatActivity() {
         }, {
 
         })
+
+        val mode = intent.getStringExtra("mode")
         recycler.adapter = myAdapter
         recycler.layoutManager = LinearLayoutManager(this)
-        val call2 = eventAPI.getEvents(login, pass)
+        val call2 = eventAPI.getEvents(login, pass, mode)
         call2.enqueue(object : Callback<EventsResult> {
             override fun onFailure(call: Call<EventsResult>, t: Throwable) {
                 Toast.makeText(siema, "siema${t.message}", Toast.LENGTH_LONG).show()

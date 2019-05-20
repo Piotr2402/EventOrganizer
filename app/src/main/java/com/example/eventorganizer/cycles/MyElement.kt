@@ -1,6 +1,8 @@
 package com.example.eventorganizer.cycles
 
 data class MyElement(
+    val eventId: Int,
+
     val title: String,
     val userId: String,
     val date: String,
