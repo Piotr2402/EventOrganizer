@@ -1,14 +1,14 @@
 package com.example.eventorganizer.cycles
 
+import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.Toast
-import com.example.eventorganizer.EventAPI
-import com.example.eventorganizer.EventsResult
-import com.example.eventorganizer.LoginResult
-import com.example.eventorganizer.R
+import com.example.eventorganizer.*
+import kotlinx.android.synthetic.main.activity_every_event_list.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -76,9 +76,18 @@ class MyAllEventsActivity : AppCompatActivity() {
                 })
             }
         }, {
-
+            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                val myintent = Intent(siema, BlankActivity::class.java)
+                myintent.putExtra("eventId", myElements[it].eventId)
+                myintent.putExtra("image", myElements[it].imagePath)
+                myintent.putExtra("desc", myElements[it].description)
+                myintent.putExtra("person", myElements[it].userId)
+                startActivity(myintent);
+            } else {
+                var ratingFragment = supportFragmentManager.findFragmentById(R.id.fragment2) as BlankFragment
+                ratingFragment.display(myElements[it].imagePath, myElements[it].description, myElements[it].userId)
+            }
         })
-
         val mode = intent.getStringExtra("mode")
         recycler.adapter = myAdapter
         recycler.layoutManager = LinearLayoutManager(this)
@@ -86,6 +95,7 @@ class MyAllEventsActivity : AppCompatActivity() {
         call2.enqueue(object : Callback<EventsResult> {
             override fun onFailure(call: Call<EventsResult>, t: Throwable) {
                 Toast.makeText(siema, "siema${t.message}", Toast.LENGTH_LONG).show()
+                textView7.text = "Błąd"
             }
 
             override fun onResponse(call: Call<EventsResult>, response: Response<EventsResult>) {
@@ -96,6 +106,7 @@ class MyAllEventsActivity : AppCompatActivity() {
                         myElements.add(ele)
                     }
                     myAdapter.notifyDataSetChanged()
+                    textView7.text = ""
                 }
             }
         })

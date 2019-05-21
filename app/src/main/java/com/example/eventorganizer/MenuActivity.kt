@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.SharedPreferences
 import android.support.v7.app.AlertDialog
 import android.view.View
 import com.example.eventorganizer.cycles.MyAllEventsActivity
+import kotlinx.android.synthetic.main.menu_activity.*
 
 
 class MenuActivity : AppCompatActivity() {
@@ -14,7 +16,7 @@ class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.menu_activity)
-
+        title2.text = "Witaj " + getSharedPreferences("logout", MODE_PRIVATE).getString("firstName", "")
     }
 
     override fun onBackPressed() {

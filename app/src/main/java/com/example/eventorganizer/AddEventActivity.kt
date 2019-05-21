@@ -69,6 +69,8 @@ class AddEventActivity : AppCompatActivity() {
     }
 
     fun add(view: View) {
+        addButton.isEnabled = false
+        addButton.text = "Tworzenie..."
         if (taken.not()) {
             addEvent("")
             return
@@ -82,7 +84,9 @@ class AddEventActivity : AppCompatActivity() {
 
         call1.enqueue(object : Callback<LoginResult> {
             override fun onFailure(call: Call<LoginResult>, t: Throwable) {
-                displayAlertDialog("Błąd podczasz tworzenia" + t.message, false)
+                displayAlertDialog("Błąd podczasz tworzenia: " + t.message, false)
+                addButton.isEnabled = true
+                addButton.text = "Utwórz"
             }
 
             override fun onResponse(call: Call<LoginResult>, response: Response<LoginResult>) {
@@ -92,6 +96,8 @@ class AddEventActivity : AppCompatActivity() {
                         addEvent(body.value);
                     } else {
                         displayAlertDialog(body.result, false)
+                        addButton.isEnabled = true
+                        addButton.text = "Utwórz"
                     }
                 }
             }

@@ -12,6 +12,22 @@
             android:layout_height="0dp" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:listitem="@layout/layout_item" android:id="@+id/recyclerView"/>
+            tools:listitem="@layout/layout_item" android:id="@+id/recyclerView"
+            app:layout_constraintEnd_toStartOf="@+id/fragment2" android:layout_marginEnd="8dp">
+    </android.support.v7.widget.RecyclerView>
+    <fragment
+            android:layout_width="240dp"
+            android:layout_height="0dp" android:name="com.example.eventorganizer.BlankFragment"
+            android:id="@+id/fragment2" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" tools:layout="@layout/fragment_blank"/>
+    <TextView
+            android:text="Ładowanie..."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView7"
+            app:layout_constraintEnd_toStartOf="@+id/fragment2" android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"/>
 </android.support.constraint.ConstraintLayout>

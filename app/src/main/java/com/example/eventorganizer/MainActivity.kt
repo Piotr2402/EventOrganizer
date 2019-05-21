@@ -32,6 +32,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun login(view: View) {
+        loginButton.isEnabled = false
+        loginButton.text = "Logowanie..."
 
         val retrofit = Retrofit.Builder()
             .baseUrl("http://eventapi.dx.am")
@@ -45,17 +47,21 @@ class MainActivity : AppCompatActivity() {
         call.enqueue(object : Callback<LoginResult> {
             override fun onFailure(call: Call<LoginResult>, t: Throwable) {
                 displayAlertDialog("Błąd logowania")
+                loginButton.isEnabled = true
+                loginButton.text = "Zaloguj się"
             }
 
             override fun onResponse(call: Call<LoginResult>, response: Response<LoginResult>) {
                 val body = response.body()
                 if (body != null) {
                     if (body.result == "ok") {
-                        loginDataAccepted()
+                        loginDataAccepted(body.value)
                     } else {
                         displayAlertDialog("Błędny login lub hasło")
                     }
                 }
+                loginButton.isEnabled = true
+                loginButton.text = "Zaloguj się"
             }
         })
     }
@@ -65,11 +71,12 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun loginDataAccepted() {
+    private fun loginDataAccepted(firstName: String) {
         val sharedPref = getSharedPreferences("logout", MODE_PRIVATE)
         val editor = sharedPref.edit()
         editor.putString("login", login.text.toString())
         editor.putString("password", password1.text.toString())
+        editor.putString("firstName", firstName)
         editor.putBoolean("logout", logout.isChecked.not())
         editor.commit()
         val intent = Intent(this, MenuActivity::class.java)
