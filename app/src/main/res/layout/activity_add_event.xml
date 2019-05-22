@@ -4,7 +4,7 @@
                                              android:layout_height="match_parent"
                                              xmlns:tools="http://schemas.android.com/tools"
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             android:background="@xml/gradient"
+                                             android:background="@xml/basic"
                                              tools:context=".AddEventActivity">>
     <TextView
             android:text="Nowe wydarzenie"
@@ -35,11 +35,13 @@
         <Button
                 android:text="2019-05-20"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/dateButton" android:onClick="dateButtonClick"/>
+                android:layout_height="wrap_content" android:id="@+id/dateButton" android:onClick="dateButtonClick"
+                android:background="@color/darkerBeige"/>
         <Button
                 android:text="13:66"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/timeButton" android:onClick="timeButtonClick"/>
+                android:layout_height="wrap_content" android:id="@+id/timeButton" android:onClick="timeButtonClick"
+                android:background="@color/darkerBeige"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
