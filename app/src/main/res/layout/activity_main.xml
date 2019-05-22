@@ -5,20 +5,21 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@xml/gradient"
-        tools:context=".MainActivity">
+
+        tools:context=".MainActivity" android:background="@xml/basic">
 
     <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:id="@+id/linearLayout2"
             android:gravity="center" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/password1"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/registerButton">
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/registerButton"
+            app:layout_constraintVertical_bias="0.13999999">
         <Button
-                android:text="Zaloguj się"
+                android:text="@string/sign_in"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/loginButton" android:onClick="login"
@@ -27,7 +28,8 @@
                 android:layout_marginStart="8dp"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toStartOf="@+id/logout"
-                style="@style/Widget.AppCompat.Button.Colored" android:textSize="18sp"/>
+                style="@style/Widget.AppCompat.Button.Colored" android:textSize="18sp"
+                android:background="@color/darkerBeige"/>
         <CheckBox
                 android:text="Nie wylogowywuj mnie"
                 android:layout_width="wrap_content"
@@ -40,52 +42,54 @@
                 android:checked="false" android:textSize="18sp" android:gravity="center"/>
     </LinearLayout>
     <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/login"
-            android:hint="Nazwa użytkownika"
+            android:hint="@string/Login"
+            android:drawableStart="@drawable/ic_person_black_24dp"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/event_title"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/password1"
-            android:textSize="24sp" android:gravity="center"/>
+            android:textSize="24sp" android:gravity="start" android:background="@color/darkerBeige"
+            android:textAlignment="textStart"/>
     <EditText
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/password1"
-            android:hint="Hasło"
+            android:hint="@string/Password"
+            android:drawableStart="@drawable/ic_lock_black_24dp"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="@+id/event_title" android:layout_marginBottom="8dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:textSize="24sp" android:gravity="center"/>
-    <TextView
-            android:text="Event Organizer"
+            android:textSize="24sp" android:gravity="start" android:background="@color/darkerBeige"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            android:textAlignment="textStart"/>
+    <ImageView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/event_title" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:id="@+id/event_logo" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:gravity="center"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textSize="40sp"/>
-    <Button
-            android:text="Zarejestruj się"
+            app:srcCompat="@drawable/eventlogobitmap" android:layout_height="0dp"
+            app:layout_constraintHorizontal_bias="1.0"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/login" android:contentDescription="@string/logo"/>
+    <TextView
+            android:text="@string/Register"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="47dp"
             android:id="@+id/registerButton"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
             android:onClick="register"
             android:layout_marginBottom="16dp" app:layout_constraintBottom_toBottomOf="parent"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:textSize="24sp"/>
+            android:textSize="14sp"
+            app:layout_constraintHorizontal_bias="0.497"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="@+id/event_logo"
+            app:layout_constraintVertical_bias="0.96"/>
 
 </android.support.constraint.ConstraintLayout>

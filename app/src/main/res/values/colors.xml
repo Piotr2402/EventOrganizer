@@ -2,5 +2,7 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#E1BE80</color>
+    <color name="Beige">#E1BE80</color>
+    <color name="darkerBeige">#C4994A</color>
 </resources>

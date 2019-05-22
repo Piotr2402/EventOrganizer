@@ -27,7 +27,7 @@
         <TextView
                 android:text="title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/event_title"/>
+                android:layout_height="wrap_content" android:id="@+id/event_logo"/>
         <TextView
                 android:text="place"
                 android:layout_width="match_parent"
