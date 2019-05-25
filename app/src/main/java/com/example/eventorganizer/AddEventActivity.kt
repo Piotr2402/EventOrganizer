@@ -93,7 +93,7 @@ class AddEventActivity : AppCompatActivity() {
                 val body = response.body()
                 if (body != null) {
                     if (body.result == "ok") {
-                        addEvent(body.value);
+                        addEvent(body.value)
                     } else {
                         displayAlertDialog(body.result, false)
                         addButton.isEnabled = true
@@ -192,13 +192,9 @@ class AddEventActivity : AppCompatActivity() {
         file.createNewFile()
 
         if (::imageTaken.isInitialized) {
-
-            //Convert bitmap to byte array
             val bos = ByteArrayOutputStream()
             imageTaken.compress(Bitmap.CompressFormat.JPEG, 100, bos)
             val bitmapdata = bos.toByteArray()
-
-            //write the bytes in file
             val fos = FileOutputStream(file)
             fos.write(bitmapdata)
             fos.flush()

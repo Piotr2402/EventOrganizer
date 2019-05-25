@@ -105,7 +105,7 @@ class MyAllEventsActivity : AppCompatActivity() {
         val call2 = eventAPI.getEvents(login, pass, mode)
         call2.enqueue(object : Callback<EventsResult> {
             override fun onFailure(call: Call<EventsResult>, t: Throwable) {
-                Toast.makeText(siema, "siema${t.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(siema, "${t.message}", Toast.LENGTH_LONG).show()
                 textView7.text = "Błąd"
             }
 
