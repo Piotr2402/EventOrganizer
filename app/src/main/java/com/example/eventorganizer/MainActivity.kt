@@ -79,6 +79,7 @@ class MainActivity : AppCompatActivity() {
         editor.putString("password", password1.text.toString())
         editor.putString("firstName", firstName)
         editor.putBoolean("logout", logout.isChecked.not())
+        editor.putBoolean("first",true)
         editor.commit()
         val intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)

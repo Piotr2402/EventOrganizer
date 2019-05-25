@@ -16,9 +16,6 @@ class MyAdapter(
     val clickListener: (Int) -> Unit
 ) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
-    var dateFilter = ""
-    var doneFilter = false
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_item, parent, false)
         return MyViewHolder(view)
@@ -46,8 +43,13 @@ class MyAdapter(
         holder.takingPart.textOff = "Weź udział (${mDataList[position].goingUserCount}/${mDataList[position].limit})"
         holder.takingPart.textOn = "Zrezygnuj (${mDataList[position].goingUserCount}/${mDataList[position].limit})"
 
-        if (mDataList[position].imagePath != "")
+        if (mDataList[position].imagePath != "") {
+            holder.imageView.visibility = View.VISIBLE
             holder.updateWithUrl(mDataList[position].imagePath)
+        } else {
+            holder.imageView.visibility = View.GONE
+        }
+
         holder.interested.isChecked = mDataList[position].interested
         holder.takingPart.isChecked = mDataList[position].takingPart
     }
