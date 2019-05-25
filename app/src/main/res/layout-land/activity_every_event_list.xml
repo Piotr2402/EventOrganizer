@@ -5,6 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@xml/basic"
         tools:context=".cycles.MyAllEventsActivity">
 
     <android.support.v7.widget.RecyclerView
@@ -13,10 +14,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:listitem="@layout/layout_item" android:id="@+id/recyclerView"
-            app:layout_constraintEnd_toStartOf="@+id/fragment2" android:layout_marginEnd="8dp">
+            app:layout_constraintEnd_toStartOf="@+id/fragment2">
     </android.support.v7.widget.RecyclerView>
     <fragment
-            android:layout_width="240dp"
+            android:layout_width="275dp"
             android:layout_height="0dp" android:name="com.example.eventorganizer.BlankFragment"
             android:id="@+id/fragment2" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
